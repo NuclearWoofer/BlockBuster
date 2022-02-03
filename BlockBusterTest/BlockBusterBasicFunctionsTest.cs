@@ -36,7 +36,12 @@ namespace BlockBusterTest
         }
 
         //Get all movue by Genre Description
-        
+        [Fact]
+        public void GetMoviesByGenreDescriptionTest()
+        {
+            var result = BlockBusterBasicFunctions.GetMoviesByGenreDescription();
+            Assert.True(result.GenreId);
+        }
         //Get all movies by Director Last Name
         [Fact]
         public void GetMoviesByLastNameTest()

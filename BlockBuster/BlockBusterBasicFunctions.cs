@@ -17,7 +17,7 @@ namespace BlockBuster
         {
             try
             {
-                using(var context = new SE407_BlockBusterContext())
+                using (var context = new SE407_BlockBusterContext())
                 {
                     return context.Movies.Find(id);
                 }
@@ -25,7 +25,7 @@ namespace BlockBuster
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                    return null;
+                return null;
 
             }
         }
@@ -64,17 +64,17 @@ namespace BlockBuster
                             ReleaseYear = m.ReleaseYear,
                             GenreId = m.GenreId,
                             DirectorId = m.DirectorId,
-                            CheckedIn= t.CheckedIn
-                        }).Where(w=>w.CheckedIn == "N")
+                            CheckedIn = t.CheckedIn
+                        }).Where(w => w.CheckedIn == "N")
                         .Select(m => new Movie
-                            {
-                                MovieId = m.MovieId,
-                                Title = m.Title,
-                                ReleaseYear = m.ReleaseYear,
-                                GenreId = m.GenreId,
-                                DirectorId = m.DirectorId,
+                        {
+                            MovieId = m.MovieId,
+                            Title = m.Title,
+                            ReleaseYear = m.ReleaseYear,
+                            GenreId = m.GenreId,
+                            DirectorId = m.DirectorId,
 
-                            }).ToList();
+                        }).ToList();
                 }
             }
             catch (Exception e)
@@ -82,6 +82,21 @@ namespace BlockBuster
                 Console.WriteLine(e.Message);
                 return null;
 
+            }
+        }
+        public static Movie GetMoviesByGenreDescription(int GenreId)
+        {
+            try
+            {
+                using (var context = new SE407_BlockBusterContext())
+                {
+                    return context.Movies.Find(GenreId);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
 
@@ -103,5 +118,5 @@ namespace BlockBuster
         }
 
     }
-    }
+}
 
